@@ -75,32 +75,6 @@
             Foreground="{ThemeResource SystemAccentColor}"
             FontWeight="SemiBold"/>
 
-        <!-- Derde rij: MQTT Data 3 knop en status -->
-        <Button x:Name="Knop_3" 
-            Grid.Row="2"
-            Grid.Column="0"
-            Content="Verzend MQTT Data 3"
-            HorizontalAlignment="Stretch"
-            VerticalAlignment="Center"
-            Height="40"
-            Margin="0,0,0,12"
-            Background="{ThemeResource SystemAccentColor}"
-            Foreground="{ThemeResource SystemAltHighColor}"
-            BorderThickness="1"
-            CornerRadius="4"
-            Padding="12,8"
-            FontWeight="SemiBold"
-            Click="OnClick3"/>
-
-        <TextBlock x:Name="StatusText3"
-            Grid.Row="2"
-            Grid.Column="1"
-            Margin="12,0,0,0"
-            VerticalAlignment="Center"
-            Text="Klaar om te verbinden..."
-            Foreground="{ThemeResource SystemAccentColor}"
-            FontWeight="SemiBold"/>
-
         <!-- Vierde rij: TextBox -->
         <TextBox 
             x:Name="MijnTextBox"

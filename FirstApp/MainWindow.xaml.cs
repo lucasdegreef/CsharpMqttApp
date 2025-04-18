@@ -111,13 +111,7 @@ namespace FirstApp
             
         }
 
-        private void OnClick3(object sender, RoutedEventArgs e)
-        {
-
-            Debug.WriteLine("Knop geklikt");
-
-            _timer.Start();
-        }
+        
 
 
     }
