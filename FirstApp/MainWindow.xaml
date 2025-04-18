@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Window
+    x:Class="FirstApp.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:FirstApp"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Title="LucasBLE App">
+
+    <Grid Padding="20">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="200"/>
+            <ColumnDefinition Width="300"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <!-- Eerste rij: Test connectie knop en status -->
+        <Button x:Name="Knop_1" 
+            Grid.Row="0"
+            Grid.Column="0"
+            Content="Test connectie"
+            HorizontalAlignment="Stretch"
+            VerticalAlignment="Center"
+            Height="40"
+            Margin="0,0,0,12"
+            Background="{ThemeResource SystemAccentColor}"
+            Foreground="{ThemeResource SystemAltHighColor}"
+            BorderThickness="1"
+            CornerRadius="4"
+            Padding="12,8"
+            FontWeight="SemiBold"
+            Click="OnClick1"/>
+
+        <TextBlock x:Name="StatusText1"
+            Grid.Row="0"
+            Grid.Column="1"
+            Margin="12,0,0,0"
+            VerticalAlignment="Center"
+            Text="Wachtend op test"
+            Foreground="{ThemeResource SystemAccentColor}"
+            FontWeight="SemiBold"/>
+
+        <!-- Tweede rij: MQTT Data 2 knop en status -->
+        <Button x:Name="Knop_2" 
+            Grid.Row="1"
+            Grid.Column="0"
+            Content="Verzend MQTT Data 2"
+            HorizontalAlignment="Stretch"
+            VerticalAlignment="Center"
+            Height="40"
+            Margin="0,0,0,12"
+            Background="{ThemeResource SystemAccentColor}"
+            Foreground="{ThemeResource SystemAltHighColor}"
+            BorderThickness="1"
+            CornerRadius="4"
+            Padding="12,8"
+            FontWeight="SemiBold"
+            Click="OnClick2"/>
+
+        <TextBlock x:Name="StatusText2"
+            Grid.Row="1"
+            Grid.Column="1"
+            Margin="12,0,0,0"
+            VerticalAlignment="Center"
+            Text="Test data sending"
+            Foreground="{ThemeResource SystemAccentColor}"
+            FontWeight="SemiBold"/>
+
+        <!-- Derde rij: MQTT Data 3 knop en status -->
+        <Button x:Name="Knop_3" 
+            Grid.Row="2"
+            Grid.Column="0"
+            Content="Verzend MQTT Data 3"
+            HorizontalAlignment="Stretch"
+            VerticalAlignment="Center"
+            Height="40"
+            Margin="0,0,0,12"
+            Background="{ThemeResource SystemAccentColor}"
+            Foreground="{ThemeResource SystemAltHighColor}"
+            BorderThickness="1"
+            CornerRadius="4"
+            Padding="12,8"
+            FontWeight="SemiBold"
+            Click="OnClick3"/>
+
+        <TextBlock x:Name="StatusText3"
+            Grid.Row="2"
+            Grid.Column="1"
+            Margin="12,0,0,0"
+            VerticalAlignment="Center"
+            Text="Klaar om te verbinden..."
+            Foreground="{ThemeResource SystemAccentColor}"
+            FontWeight="SemiBold"/>
+
+        <!-- Vierde rij: TextBox -->
+        <TextBox 
+            x:Name="MijnTextBox"
+            Grid.Row="3"
+            Grid.Column="0"
+            Grid.ColumnSpan="2"
+            Header="Laat dit veld niet leeg"
+            PlaceholderText="Typ hier iets..."
+            Margin="0,12,0,0"
+            Height="100"
+            TextWrapping="Wrap"
+            AcceptsReturn="True"
+            IsEnabled="True"
+            TextChanged="TextBoxVeranderd"/>
+    </Grid>
+</Window>
