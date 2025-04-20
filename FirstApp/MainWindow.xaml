@@ -8,7 +8,6 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
     Title="LucasBLE App">
-
     <Grid Padding="20">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
@@ -16,13 +15,13 @@
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="200"/>
-            <ColumnDefinition Width="300"/>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="Auto"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
-
         <!-- Eerste rij: Test connectie knop en status -->
         <Button x:Name="Knop_1" 
             Grid.Row="0"
@@ -49,6 +48,34 @@
             Foreground="{ThemeResource SystemAccentColor}"
             FontWeight="SemiBold"/>
 
+        <!-- Scan voor BLE Apparaten knop -->
+        <Button x:Name="ScanBleButton" 
+            Grid.Row="0"
+            Grid.Column="2"
+            Content="Scan voor BLE Apparaten"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Center"
+            Height="40"
+            Margin="12,0,0,12"
+            Background="{ThemeResource SystemAccentColor}"
+            Foreground="{ThemeResource SystemAltHighColor}"
+            BorderThickness="1"
+            CornerRadius="4"
+            Padding="12,8"
+            FontWeight="SemiBold"
+            Click="OnScanBle"/>
+
+        <!-- BLE Scan Status -->
+        <TextBlock x:Name="BleScanStatus"
+            Grid.Row="0"
+            Grid.Column="3"
+            Margin="12,0,0,0"
+            VerticalAlignment="Center"
+            Text="Bezig met scannen"
+            Foreground="{ThemeResource SystemAccentColor}"
+            FontWeight="SemiBold"
+            Visibility="Collapsed"/>
+
         <!-- Tweede rij: MQTT Data 2 knop en status -->
         <Button x:Name="Knop_2" 
             Grid.Row="1"
@@ -69,6 +96,7 @@
         <TextBlock x:Name="StatusText2"
             Grid.Row="1"
             Grid.Column="1"
+            Grid.ColumnSpan="3"
             Margin="12,0,0,0"
             VerticalAlignment="Center"
             Text="Test data sending"
@@ -80,7 +108,7 @@
             x:Name="MijnTextBox"
             Grid.Row="3"
             Grid.Column="0"
-            Grid.ColumnSpan="2"
+            Grid.ColumnSpan="4"
             Header="Laat dit veld niet leeg"
             PlaceholderText="Typ hier iets..."
             Margin="0,12,0,0"

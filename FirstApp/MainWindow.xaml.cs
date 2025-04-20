@@ -18,6 +18,7 @@ using MQTTnet;
 using Microsoft.UI;
 using System.Threading.Tasks;
 
+
 // To learn more about WinUI, the WinUI project structure,
 // and more about our project templates, see: http://aka.ms/winui-project-info.
 
@@ -31,6 +32,7 @@ namespace FirstApp
     {
         private DispatcherTimer _timer;
         private readonly MqttService _mqttService = new MqttService();
+        private BleuthootzoekenLucas BLE_Lucas = new BleuthootzoekenLucas();
         public MainWindow()
         {
             this.InitializeComponent();
@@ -40,6 +42,7 @@ namespace FirstApp
             _timer.Tick += (s, e) =>
             {
                 Knop_1.Content = "Verzend MQTT data"; // Zet de oorspronkelijke tekst terug
+                BLE_Lucas.BLE_Stop();
                 _timer.Stop(); // Stop de timer
             };
 
@@ -55,7 +58,7 @@ namespace FirstApp
             {
                 StatusText1.Text = "Wachten op verbinding...";
 
-                await _mqttService.ConnectAsync("test.mosquitto.org", 1883);
+                await _mqttService.ConnectAsync("broker.emqx.io", 1883);
 
                 Debug.WriteLine("Knop geklikt");
 
@@ -78,7 +81,7 @@ namespace FirstApp
                 if (!string.IsNullOrEmpty(MijnTextBox.Text))
                 {
                     string data = MijnTextBox.Text;
-                    await _mqttService.PublishAsync("Lucas/topic/App1", data);
+                    await _mqttService.PublishAsync("Topic/lucas87", data);
                     StatusText2.Text = "Verzending gelukt";
                 }
                 else
@@ -111,7 +114,19 @@ namespace FirstApp
             
         }
 
-        
+        private async void OnScanBle(object sender, Microsoft.UI.Xaml.RoutedEventArgs e)
+        {
+            // Toon het "Bezig met scannen" label
+            BleScanStatus.Visibility = Microsoft.UI.Xaml.Visibility.Visible;
+
+            BLE_Lucas.BLE_Start();
+
+
+            // Implementeer hier je BLE scan logica
+
+            // Na het scannen (je kunt dit in een callback of een timer doen):
+            // BleScanStatus.Visibility = Microsoft.UI.Xaml.Visibility.Collapsed;
+        }
 
 
     }
